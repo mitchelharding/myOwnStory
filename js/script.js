@@ -1,18 +1,13 @@
 $(document).ready(function(){
 
-  $("#form1").submit(function(){
+  $("#form1").submit(function(event){
 
-    var inputPerson1 = $("input#person1").val();
-    var inputPerson2 = $("input#person2").val();
-    var inputpetName = $("input#petName").val();
-    var inputimaginaryPlace = $("input#imaginaryPlace").val();
-    var inputanObject = $("input#anObject").val();
+    var form1s = ["person1", "person2", "petName", "imaginaryPlace", "anObject"];
 
-    $(".person1").text(inputPerson1);
-    $(".person2").text(inputPerson2);
-    $(".petName").text(inputpetName);
-    $(".imaginaryPlace").text(inputimaginaryPlace);
-    $(".anObject").text(inputanObject);
+    form1s.forEach(function(form1){
+      var userInput = $("input#" + form1).val();
+      $("." + form1).text(userInput);
+    });
 
     $("#story").show();
 
